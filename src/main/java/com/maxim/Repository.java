@@ -3,12 +3,14 @@ package com.maxim;
 public class Repository {
 
     private String name;
+    private String language;
     private int stars;
     private int forks;
     private String url;
 
-    public Repository(String name, int stars, int forks, String url) {
+    public Repository(String name, String language, int stars, int forks, String url) {
         this.name = name;
+        this.language = language;
         this.stars = stars;
         this.forks = forks;
         this.url = url;
@@ -16,6 +18,10 @@ public class Repository {
 
     public String getName() {
         return name;
+    }
+
+    public String getLanguage() {
+        return language;
     }
 
     public int getStars() {

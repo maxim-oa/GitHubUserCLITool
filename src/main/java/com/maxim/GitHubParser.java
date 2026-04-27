@@ -26,11 +26,12 @@ public class GitHubParser {
         for (int i = 0; i < array.length(); i++) {
             JSONObject obj = array.getJSONObject(i);
             String name = obj.getString("name");
+            String language = obj.optString("language", "N/A");
             int stars = obj.getInt("stargazers_count");
             int forks = obj.getInt("forks_count");
             String url = obj.getString("html_url");
 
-            repos.add(new Repository(name, stars, forks, url));
+            repos.add(new Repository(name, language, stars, forks, url));
         }
         Utility.sortReposByStars(repos);
         return repos;

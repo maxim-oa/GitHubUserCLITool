@@ -10,10 +10,10 @@ public class GitHubFormatter {
         System.out.println("GitHub User Summary");
         System.err.println("================================");
 
-        System.out.println("Name        :   " + user.getName());
-        System.out.println("Repos       :   " + user.getRepos());
-        System.out.println("Followers   :   " + user.getFollowers());
-        System.out.println("Following   :   " + user.getFollowing());
+        System.out.println("Name      :   " + user.getName());
+        System.out.println("Repos     :   " + user.getRepos());
+        System.out.println("Followers :   " + user.getFollowers());
+        System.out.println("Following :   " + user.getFollowing());
 
         System.err.println("================================");
 
@@ -26,10 +26,11 @@ public class GitHubFormatter {
         System.err.println("================================");
 
         for (Repository repo : repos) {
-            System.out.println("Name    :   " + repo.getName());
-            System.out.println("Stars   :   " + repo.getStars());
-            System.out.println("Forks   :   " + repo.getForks());
-            System.out.println("URL     :   " + repo.getUrl());
+            System.out.println("Name     :   " + repo.getName());
+            System.out.println("Language :   " + repo.getStars());
+            System.out.println("Stars    :   " + repo.getStars());
+            System.out.println("Forks    :   " + repo.getForks());
+            System.out.println("URL      :   " + repo.getUrl());
 
             System.err.println("================================");
         }
