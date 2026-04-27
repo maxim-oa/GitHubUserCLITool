@@ -1,3 +1,5 @@
+package com.maxim;
+
 import java.util.Scanner;
 
 public class Main {
