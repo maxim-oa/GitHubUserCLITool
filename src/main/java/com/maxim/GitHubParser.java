@@ -32,7 +32,7 @@ public class GitHubParser {
 
             repos.add(new Repository(name, stars, forks, url));
         }
-
+        Utility.sortReposByStars(repos);
         return repos;
     }
 
