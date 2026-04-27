@@ -10,8 +10,8 @@ public class Main {
         String username = sc.nextLine();
 
         String data = GitHubService.getUserData(username);
-        System.out.println("\nRaw Response:");
-        System.out.println(data);
+        User user = GitHubParser.parseUser(data);
+        GitHubFormatter.printUser(user);
 
         sc.close();
     }
