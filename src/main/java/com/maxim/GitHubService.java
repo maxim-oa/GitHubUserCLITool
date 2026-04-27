@@ -16,6 +16,12 @@ public class GitHubService {
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Accept", "application/json");
 
+            int responseCode = connection.getResponseCode();
+            
+            if (responseCode == 404){
+                return null;
+            }
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             StringBuilder response = new StringBuilder();
@@ -39,6 +45,12 @@ public class GitHubService {
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
+
+            int responseCode = connection.getResponseCode();
+            
+            if (responseCode == 404){
+                return null;
+            }
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
