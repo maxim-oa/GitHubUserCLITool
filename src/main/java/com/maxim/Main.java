@@ -10,18 +10,23 @@ public class Main {
         System.out.print("Enter GitHub Username: ");
         String username = sc.nextLine();
 
-        System.out.println("1. View user summary");
-        System.out.println("2. View top repositories");
-        System.out.println("3. Exit");
+        System.out.println("1. View user details");
+        System.out.println("2. View user summary");
+        System.out.println("3. View top repositories");
+        System.out.println("4. Exit");
         System.out.print("Select : ");
         int option = sc.nextInt();
 
         switch (option) {
             case 1:
                 userSummary(username);
+                userRepos(username);
                 break;
 
             case 2:
+                userSummary(username);
+
+            case 3:
                 userRepos(username);
                 break;
 
