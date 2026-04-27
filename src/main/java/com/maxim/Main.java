@@ -18,7 +18,7 @@ public class Main {
             System.out.println("1. View user details");
             System.out.println("2. View user summary");
             System.out.println("3. View top repositories");
-            System.out.println("Anything other number. Exit");
+            System.out.println("Anything other number -> Exit");
             System.out.print("Select : ");
 
             int option = SafeInput.getInt(sc);
