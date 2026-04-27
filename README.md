@@ -30,13 +30,18 @@ This project demonstrates core Java concepts including object-oriented programmi
 - Java 21 or higher
 - Maven installed
 
-### 1. Build
+### 1. Install
+
 ```bash
+git clone https://github.com/maxim-oa/GitHubUserCLITool.git
+cd GitHubCLITool
 mvn package
 ```
 
 ### 2. Run
+
 ```bash
+cd GitHubCLITool
 java -jar target/github-cli-1.0-SNAPSHOT.jar 
 ```
 
