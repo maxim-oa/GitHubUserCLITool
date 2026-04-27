@@ -27,7 +27,7 @@ public class GitHubFormatter {
 
         for (Repository repo : repos) {
             System.out.println("Name     :   " + repo.getName());
-            System.out.println("Language :   " + repo.getStars());
+            System.out.println("Language :   " + repo.getLanguage());
             System.out.println("Stars    :   " + repo.getStars());
             System.out.println("Forks    :   " + repo.getForks());
             System.out.println("URL      :   " + repo.getUrl());
