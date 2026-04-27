@@ -11,9 +11,34 @@ public class GitHubService {
         try {
             String urlString = "https://api.github.com/users/" + username;
             URL url = new URI(urlString).toURL();
+            
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Accept", "application/json");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            StringBuilder response = new StringBuilder();
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            reader.close();
+            return response.toString();
+
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
+
+    }
+
+    public static String getRepos(String username) {
+        try {
+            String urlString = "https://api.github.com/users/" + username + "/repos";
+            URL url = new URI(urlString).toURL();
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
