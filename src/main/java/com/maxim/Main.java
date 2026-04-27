@@ -9,6 +9,50 @@ import com.maxim.Utility.SafeInput;
 public class Main {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
+        boolean running = true;
+        while (running) {
+            System.out.println("\n================================");
+            System.out.println("GitHub CLI Tool");
+            System.out.println("================================");
+
+            System.out.println("1. View user details");
+            System.out.println("2. View user summary");
+            System.out.println("3. View top repositories");
+            System.out.println("Anything other number. Exit");
+            System.out.print("Select : ");
+
+            int option = SafeInput.getInt(sc);
+
+            String username;
+
+            switch (option) {
+                case 1:
+                    username = getUsername(sc);
+                    if (userSummary(username)) {
+                        userRepos(username);
+                    }
+                    break;
+
+                case 2:
+                    username = getUsername(sc);
+                    userSummary(username);
+                    break;
+
+                case 3:
+                    username = getUsername(sc);
+                    userRepos(username);
+                    break;
+
+                default:
+                    running = false;
+                    break;
+
+            }
+        }
+        sc.close();
+    }
+
+    private static String getUsername(Scanner sc) {
         String username;
 
         while (true) {
@@ -18,52 +62,30 @@ public class Main {
                 break;
             }
         }
-
-        System.out.println("1. View user details");
-        System.out.println("2. View user summary");
-        System.out.println("3. View top repositories");
-        System.out.println("4. Exit");
-        System.out.print("Select : ");
-        int option = SafeInput.getInt(sc);
-
-        switch (option) {
-            case 1:
-                userSummary(username);
-                userRepos(username);
-                break;
-
-            case 2:
-                userSummary(username);
-
-            case 3:
-                userRepos(username);
-                break;
-
-            default:
-                break;
-        }
-        sc.close();
+        return username;
     }
 
-    public static void userSummary(String username) {
+    public static boolean userSummary(String username) {
         String response = GitHubService.getUserData(username);
         if (response == null) {
             System.out.println("User not found or API error.");
-            return;
+            return false;
         }
         User user = GitHubParser.parseUser(response);
         GitHubFormatter.printUser(user);
+        return true;
     }
 
-    public static void userRepos(String username) {
+    public static boolean userRepos(String username) {
         String response = GitHubService.getRepos(username);
 
         if (response == null) {
             System.out.println("User not found or API error.");
-            return;
+            return false;
         }
 
         ArrayList<Repository> repos = GitHubParser.parseRepos(response);
         GitHubFormatter.printRepos(repos);
+        return true;
     }
 }
