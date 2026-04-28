@@ -34,14 +34,14 @@ This project demonstrates core Java concepts including object-oriented programmi
 
 ```bash
 git clone https://github.com/maxim-oa/GitHubUserCLITool.git
-cd GitHubCLITool
+cd GitHubUserCLITool
 mvn package
 ```
 
 ### 2. Run
 
 ```bash
-cd GitHubCLITool
+cd GitHubUserCLITool
 java -jar target/github-cli-1.0-SNAPSHOT.jar 
 ```
 
