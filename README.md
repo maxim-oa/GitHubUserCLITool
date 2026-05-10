@@ -33,7 +33,7 @@ This project demonstrates core Java concepts including object-oriented programmi
 ### 1. Install
 
 ```bash
-git clone https://github.com/maxim-oa/GitHubUserCLITool.git
+git clone https://github.com/oamaxim/GitHubUserCLITool.git
 cd GitHubUserCLITool
 mvn package
 ```
